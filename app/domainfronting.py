@@ -69,6 +69,7 @@ class domainfronting_handler(socketserver.BaseRequestHandler):
             frontend_domain_port = int(socket_client_request_port)
 
         try:
+            self.log('Connecting to {} port {}'.format(frontend_domain_host, frontend_domain_port))
             socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             socket_server.connect((frontend_domain_host, frontend_domain_port))
             socket_client.sendall('HTTP/1.1 200 OK\r\n\r\n'.encode())
