@@ -1,4 +1,5 @@
 import app
+import sys
 
 def real_path(file_name):
     return app.real_path('/../' + file_name)
@@ -13,4 +14,7 @@ if __name__ == '__main__':
         domainfronting.buffer_size = 1024
         domainfronting.serve_forever()
     except KeyboardInterrupt:
+        sys.stdout.write('        \r')
+        sys.stdout.flush()
         app.log('Stopped.', color='[R1]')
+
